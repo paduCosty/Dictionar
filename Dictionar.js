@@ -6,15 +6,15 @@ input.addEventListener("keyup", function(event) {
     }
 });
 let x = 0;
-let wordShape = [];
-function buttonFunction() {
+let wordCheck = [];
+function searchWord() {
     let inputWord = document.getElementById("inputTxt").value;
-    wordShape[x] = inputWord; 
+    wordCheck[x] = inputWord; 
     document.getElementById("inputTxt").value ='';
     let n;
     if(x > 0)  {
         for(let i = 0; i < x; ++i) {
-            n =  wordShape[i].localeCompare(wordShape[x]);
+            n =  wordCheck[i].localeCompare(wordCheck[x]);
             if(n == 0) {
                 document.getElementById('warningText').innerHTML = "The word already exists!"; 
                 break;
@@ -22,7 +22,7 @@ function buttonFunction() {
         }
     }
    if(n != 0) {
-        document.getElementById('arrayWords').innerHTML += wordShape[x] + "<br>";
+        document.getElementById('arrayWords').innerHTML += wordCheck[x] + "<br>";
         document.getElementById('warningText').innerHTML = ""; 
     }
     ++x;
