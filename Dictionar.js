@@ -16,14 +16,14 @@ function buttonFunction() {
         for(let i = 0; i < x; ++i) {
             n =  wordShape[i].localeCompare(wordShape[x]);
             if(n == 0) {
-                document.getElementById('test').innerHTML = "The word already exists!"; 
+                document.getElementById('warningText').innerHTML = "The word already exists!"; 
                 break;
             }
         }
     }
    if(n != 0) {
         document.getElementById('arrayWords').innerHTML += wordShape[x] + "<br>";
-        document.getElementById('test').innerHTML = ""; 
+        document.getElementById('warningText').innerHTML = ""; 
     }
     ++x;
 }
