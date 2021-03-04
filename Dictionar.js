@@ -1,29 +1,29 @@
-var input = document.getElementById("inputTxt");
+let input = document.getElementById("inputTxt");
 input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
-        document.getElementById("searchButton").click();
+        document.getElementById("searchWord").click();
     }
 });
-let x = 0;
+let index = 0;
 let wordCheck = [];
 function searchWord() {
     let inputWord = document.getElementById("inputTxt").value;
-    wordCheck[x] = inputWord; 
+    wordCheck[index] = inputWord; 
     document.getElementById("inputTxt").value ='';
-    let n;
-    if(x > 0)  {
-        for(let i = 0; i < x; ++i) {
-            n =  wordCheck[i].localeCompare(wordCheck[x]);
-            if(n == 0) {
+    let existingWord;
+    if(index > 0)  {
+        for(let i = 0; i < index; ++i) {
+            existingWord =  wordCheck[i].localeCompare(wordCheck[index]);
+            if(existingWord == 0) {
                 document.getElementById('warningText').innerHTML = "The word already exists!"; 
                 break;
             }
         }
     }
-   if(n != 0) {
-        document.getElementById('arrayWords').innerHTML += wordCheck[x] + "<br>";
+   if(existingWord != 0) {
+        document.getElementById('arrayWords').innerHTML += wordCheck[index] + "<br>";
         document.getElementById('warningText').innerHTML = ""; 
     }
-    ++x;
+    ++index;
 }
